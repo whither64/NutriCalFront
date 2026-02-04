@@ -100,3 +100,36 @@ Las variables de entorno están configuradas en el archivo `docker-compose.yml` 
 - `DB_NAME`: Nombre de la base de datos
 - `DB_USER`: Usuario de la base de datos
 - `DB_PASSWORD`: Contraseña de la base de datos
+
+## Conectarse al Repositorio por HTTPS ó SSH
+
+- HTTPS
+
+https://github.com/whither64/NutriCal.git
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/whither64/NutriCal.git
+git push -u origin main
+
+git remote add origin https://github.com/whither64/NutriCal.git
+git branch -M main
+git push -u origin main
+
+- SSH
+
+git@github.com:whither64/NutriCal.git
+
+echo "# NutriCal" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:whither64/NutriCal.git
+git push -u origin main
+
+git remote add origin git@github.com:whither64/NutriCal.git
+git branch -M main
+git push -u origin main
