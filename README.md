@@ -84,12 +84,12 @@ Asegúrate de tener PostgreSQL instalado y ejecuta el script `init.sql` para cre
 
 ## Características
 
-- ✅ CRUD completo de alimentos
-- ✅ Cálculo de macronutrientes (calorías, proteínas, carbohidratos, grasas)
-- ✅ Interfaz responsive y moderna
-- ✅ Conexión a base de datos PostgreSQL
-- ✅ Containerización con Docker
-- ✅ Datos de ejemplo pre-cargados
+- CRUD completo de alimentos
+- Cálculo de macronutrientes (calorías, proteínas, carbohidratos, grasas)
+- Interfaz responsive y moderna
+- Conexión a base de datos PostgreSQL
+- Containerización con Docker
+- Datos de ejemplo pre-cargados
 
 ## Variables de Entorno
 
@@ -108,14 +108,21 @@ Las variables de entorno están configuradas en el archivo `docker-compose.yml` 
 https://github.com/whither64/NutriCal.git
 
 git init
+
 git add README.md
+
 git commit -m "first commit"
+
 git branch -M main
+
 git remote add origin https://github.com/whither64/NutriCal.git
+
 git push -u origin main
 
 git remote add origin https://github.com/whither64/NutriCal.git
+
 git branch -M main
+
 git push -u origin main
 
 - SSH
@@ -123,13 +130,22 @@ git push -u origin main
 git@github.com:whither64/NutriCal.git
 
 echo "# NutriCal" >> README.md
+
 git init
+
 git add README.md
+
 git commit -m "first commit"
+
 git branch -M main
-git remote add origin git@github.com:whither64/NutriCal.git
-git push -u origin main
 
 git remote add origin git@github.com:whither64/NutriCal.git
+
+git push -u origin main
+
+
+git remote add origin git@github.com:whither64/NutriCal.git
+
 git branch -M main
+
 git push -u origin main
