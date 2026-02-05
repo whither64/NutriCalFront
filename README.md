@@ -144,7 +144,7 @@ git remote add origin git@github.com:whither64/NutriCal.git
 git push -u origin main
 
 
-git remote add origin git@github.com:whither64/NutriCal.git
+git remote set-url origin https://github.com/whither64/NutriaCal     
 
 git branch -M main
 
