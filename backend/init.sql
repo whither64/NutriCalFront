@@ -1,5 +1,6 @@
 -- Create the database
-CREATE DATABASE nutrical;
+SELECT 'CREATE DATABASE nutrical'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'nutrical')\gexec
 
 -- Connect to the database
 \c nutrical;
