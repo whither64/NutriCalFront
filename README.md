@@ -149,3 +149,15 @@ git remote add origin git@github.com:whither64/NutriCal.git
 git branch -M main
 
 git push -u origin main
+
+- Desde terminal con Docker corriendo
+
+git clone <el-repo>
+
+docker compose up -d
+
+- Direcciones para comprobar estado del contenedor
+
+http://localhost:3000/api/foods  # debería de mostrar el contenido de la bd
+http://localhost:3000/health 	   # muestra el estado del backend
+http://localhost:5173/           # interfaz principal
