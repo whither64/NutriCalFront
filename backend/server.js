@@ -34,10 +34,10 @@ pool.query('SELECT NOW()', (err, res) => {
 app.use(cors())
 app.use(express.json())
 
-// Initialize database tables
+// Inicizlizar tablas de la bd
 const initDB = async () => {
   try {
-    // Create users table
+    // Crear tabla de usuarios
     await pool.query(`
       CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -52,7 +52,7 @@ const initDB = async () => {
       )
     `)
 
-    // Create foods table
+    // Crear tabla de alimentos
     await pool.query(`
       CREATE TABLE IF NOT EXISTS foods (
         id SERIAL PRIMARY KEY,

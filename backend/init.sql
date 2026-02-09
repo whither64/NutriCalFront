@@ -1,11 +1,11 @@
--- Create the database
+-- Crear la base de datos, comprobar si exite antes de crearla para evitar problemas
 SELECT 'CREATE DATABASE nutrical'
 WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'nutrical')\gexec
 
--- Connect to the database
+-- Connectarse con la bd
 \c nutrical;
 
--- Create users table
+-- Crear tabla de usuarios
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create foods table
+-- Crear tablas de recetas
 CREATE TABLE IF NOT EXISTS foods (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS foods (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert some sample data for foods (no user association for demo)
+-- Insertar datos de demostracion, para probar si funciona
 INSERT INTO foods (name, calories, protein, carbs, fat) VALUES
     ('Manzana', 52, 0.3, 14, 0.2),
     ('Pechuga de Pollo', 165, 31, 0, 3.6),
