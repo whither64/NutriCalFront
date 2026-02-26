@@ -103,23 +103,31 @@ Las variables de entorno están configuradas en el archivo `docker-compose.yml` 
 
 ## Conectarse al Repositorio por HTTPS ó SSH
 
+Primero Hay que iniciar sesion dentro de la terminal
+
+```
+git config --global user.name "Tu Nombre"
+
+git config --global user.email "tu_correo@example.com"
+```
+
 - HTTPS
 
-https://github.com/whither64/NutriCal.git
+https://github.com/whither64/NutriCalFront.git
 ```
 git init
-
-git add README.md
 
 git commit -m "first commit"
 
 git branch -M main
 
-git remote add origin https://github.com/whither64/NutriCal.git
+git remote add origin https://github.com/whither64/NutriCalFront.git
+
+git remote set-url origin https://github.com/whither64/NutriCalFront.git
 
 git push -u origin main
 
-git remote add origin https://github.com/whither64/NutriCal.git
+git remote add origin https://github.com/whither64/NutriCalFront.git
 
 git branch -M main
 
@@ -127,7 +135,7 @@ git push -u origin main
 ```
 - SSH
 
-git@github.com:whither64/NutriCal.git
+git@github.com:whither64/NutriCalFront.git
 
 echo "# NutriCal" >> README.md
 ```
@@ -139,12 +147,12 @@ git commit -m "first commit"
 
 git branch -M main
 
-git remote add origin git@github.com:whither64/NutriCal.git
+git remote add origin git@github.com:whither64/NutriCalFront.git
 
 git push -u origin main
 
 
-git remote set-url origin https://github.com/whither64/NutriaCal     
+git remote set-url origin https://github.com/whither64/NutriaCalFront   
 
 git branch -M main
 
