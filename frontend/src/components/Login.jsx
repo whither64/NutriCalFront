@@ -1,79 +1,71 @@
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import './Auth.css'
+import logo from '../../LogoNutri.png'
 
 function Login({ onSwitchToRegister }) {
   const { login } = useAuth()
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
+
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
-    setLoading(true)
 
     const result = await login(formData.email, formData.password)
-    
+
     if (!result.success) {
       setError(result.error)
     }
-    
-    setLoading(false)
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Iniciar Sesión</h2>
-        <p className="auth-subtitle">Bienvenido de nuevo a NutriCal</p>
+    <div className="main">
 
-        {error && <div className="auth-error">{error}</div>}
+      {/* ESQUINAS */}
+      <div className="top-green"></div>
+      <div className="top-light"></div>
+
+      <div className="bottom-green"></div>
+      <div className="bottom-light"></div>
+
+      {/* CONTENIDO */}
+      <div className="content">
+
+        <img src={logo} className="logo" />
+        <h1>NUTRIKALI</h1>
+
+        {error && <p className="error">{error}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="tu@email.com"
-            />
-          </div>
 
-          <div className="form-group">
-            <label>Contraseña</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="••••••••"
-            />
-          </div>
+          <label>Usuario</label>
+          <input
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
+          />
 
-          <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-          </button>
+          <label>Contraseña</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={(e) => setFormData({...formData, password: e.target.value})}
+          />
+
+          <a href="#">Olvidaste tu contraseña</a>
+          <a onClick={onSwitchToRegister}>Registro</a>
+
+          <button type="submit">Ingreso</button>
+
         </form>
 
-        <p className="auth-switch">
-          ¿No tienes cuenta?{' '}
-          <span onClick={onSwitchToRegister}>Regístrate aquí</span>
-        </p>
       </div>
     </div>
   )
