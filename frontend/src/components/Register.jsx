@@ -4,113 +4,93 @@ import './Auth.css'
 
 function Register({ onSwitchToLogin }) {
   const { register } = useAuth()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: ''
   })
+
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
 
-    // Validation
+    if (!formData.name || !formData.email || !formData.password) {
+      setError('Todos los campos son obligatorios')
+      return
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError('Las contraseñas no coinciden')
       return
     }
 
-    if (formData.password.length < 6) {
-      setError('La contraseña debe tener al menos 6 caracteres')
-      return
-    }
+    const result = await register(
+      formData.email,
+      formData.password,
+      formData.name
+    )
 
-    setLoading(true)
-    const result = await register(formData.email, formData.password, formData.name)
-    
     if (!result.success) {
       setError(result.error)
     }
-    
-    setLoading(false)
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2>Crear Cuenta</h2>
-        <p className="auth-subtitle">Únete a NutriCal hoy</p>
+    <div className="main">
 
-        {error && <div className="auth-error">{error}</div>}
+      <div className="top-green"></div>
+      <div className="top-light"></div>
+      <div className="bottom-green"></div>
+      <div className="bottom-light"></div>
+
+      <div className="content">
+
+        <h1 className="title">ÚNETE A NUTRIKALI</h1>
+
+        {error && <p className="error">{error}</p>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Nombre</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Tu nombre"
-            />
-          </div>
 
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="tu@email.com"
-            />
-          </div>
+          <label>Nombre</label>
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
+          />
 
-          <div className="form-group">
-            <label>Contraseña</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              placeholder="Mínimo 6 caracteres"
-            />
-          </div>
+          <label>Correo</label>
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
+          />
 
-          <div className="form-group">
-            <label>Confirmar Contraseña</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-              placeholder="Repite tu contraseña"
-            />
-          </div>
+          <label>Contraseña</label>
+          <input
+            type="password"
+            value={formData.password}
+            onChange={(e) => setFormData({...formData, password: e.target.value})}
+          />
 
-          <button type="submit" className="auth-button" disabled={loading}>
-            {loading ? 'Creando cuenta...' : 'Registrarse'}
-          </button>
+          <label>Confirmar contraseña</label>
+          <input
+            type="password"
+            value={formData.confirmPassword}
+            onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
+          />
+
+          <button type="submit">Registrar</button>
+
         </form>
 
         <p className="auth-switch">
           ¿Ya tienes cuenta?{' '}
-          <span onClick={onSwitchToLogin}>Inicia sesión aquí</span>
+          <span onClick={onSwitchToLogin}>Inicia sesión</span>
         </p>
+
       </div>
     </div>
   )
