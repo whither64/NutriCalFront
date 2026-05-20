@@ -68,7 +68,7 @@ function Dashboard() {
               <div>
 
                 <h1>
-                  Hola, Elias
+                  Hola, {user?.nombre || "Usuario"}
                 </h1>
 
                 <p>
