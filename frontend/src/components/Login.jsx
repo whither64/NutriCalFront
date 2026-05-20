@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import './Auth.css'
-import logo from '../../LogoNutri.png'
+import LogoNutri from '../../LogoNutri.png'
 
-function Login({ onSwitchToRegister }) {
+function Login({ onSwitchToRegister, onLoginSuccess }) {
+
   const { login } = useAuth()
 
   const [formData, setFormData] = useState({
@@ -16,17 +17,29 @@ function Login({ onSwitchToRegister }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const result = await login(formData.email, formData.password)
+    setError('')
 
-    if (!result.success) {
-      setError(result.error)
+    if (!formData.email || !formData.password) {
+      setError('Completa todos los campos')
+      return
+    }
+
+    const result = await login(
+      formData.email,
+      formData.password
+    )
+
+    if (result.success) {
+      onLoginSuccess()
+    } else {
+      setError(result.error || 'Credenciales incorrectas')
     }
   }
 
   return (
     <div className="main">
 
-      {/* ESQUINAS */}
+      {/* FIGURAS */}
       <div className="top-green"></div>
       <div className="top-light"></div>
 
@@ -36,37 +49,75 @@ function Login({ onSwitchToRegister }) {
       {/* CONTENIDO */}
       <div className="content">
 
-        <img src={logo} className="logo" />
-        <h1>NUTRIKALI</h1>
+        {/* LOGO */}
+        <img
+          src={LogoNutri}
+          alt="Logo NutriKali"
+          className="logo"
+        />
 
+        {/* TITULO */}
+        <h1 className="title">NUTRIKALI</h1>
+
+        {/* ERROR */}
         {error && <p className="error">{error}</p>}
 
+        {/* FORM */}
         <form onSubmit={handleSubmit}>
 
-          <label>Usuario</label>
+          <label>Correo</label>
+
           <input
-            type="text"
-            name="email"
+            type="email"
+            placeholder="correo@ejemplo.com"
             value={formData.email}
-            onChange={(e) => setFormData({...formData, email: e.target.value})}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                email: e.target.value
+              })
+            }
           />
 
           <label>Contraseña</label>
+
           <input
             type="password"
-            name="password"
+            placeholder="********"
             value={formData.password}
-            onChange={(e) => setFormData({...formData, password: e.target.value})}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                password: e.target.value
+              })
+            }
           />
 
-          <a href="#">Olvidaste tu contraseña</a>
-          <a onClick={onSwitchToRegister}>Registro</a>
+          {/* LINKS */}
+          <div className="links">
 
-          <button type="submit">Ingreso</button>
+            <span className="forgot">
+              Olvidaste tu contraseña
+            </span>
+
+            <span
+              className="register"
+              onClick={onSwitchToRegister}
+            >
+              Regístrate
+            </span>
+
+          </div>
+
+          {/* BOTON */}
+          <button type="submit">
+            Ingreso
+          </button>
 
         </form>
 
       </div>
+
     </div>
   )
 }

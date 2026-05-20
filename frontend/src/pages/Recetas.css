@@ -1,0 +1,499 @@
+.recetas-container {
+
+  padding: 30px;
+}
+
+/* HEADER */
+
+.recetas-header {
+
+  margin-bottom: 30px;
+}
+
+.recetas-header h1 {
+
+  font-size: 34px;
+
+  color: #149C68;
+
+  margin-bottom: 10px;
+}
+
+.recetas-header p {
+
+  color: #666;
+}
+
+/* BUSCADOR */
+
+.search-box {
+
+  margin-bottom: 30px;
+}
+
+.search-box input {
+
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  border: none;
+
+  background: white;
+
+  color: black;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.05);
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.search-box input::placeholder {
+
+  color: #777;
+}
+
+/* GRID */
+
+.recetas-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 25px;
+}
+
+/* CARD */
+
+.receta-card {
+
+  background: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.06);
+
+  transition: 0.2s;
+}
+
+.receta-card:hover {
+
+  transform: translateY(-5px);
+}
+
+.receta-card img {
+
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.receta-content {
+
+  padding: 22px;
+}
+
+.receta-content h2 {
+
+  color: #149C68;
+
+  margin-bottom: 12px;
+}
+
+.descripcion {
+
+  color: #555;
+
+  margin-bottom: 18px;
+
+  line-height: 1.5;
+}
+
+.info {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  color: #444;
+
+  font-weight: 600;
+}
+
+.receta-content button {
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #149C68;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.receta-content button:hover {
+
+  background: #0f7a52;
+}
+
+/* FORMULARIO */
+
+.form-card {
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 22px;
+
+  margin-bottom: 30px;
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.05);
+}
+
+.form-card h2 {
+
+  color: #149C68;
+
+  margin-bottom: 25px;
+}
+
+.form-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.form-grid input {
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  border: none;
+
+  background: #4B4B4B;
+
+  color: white;
+
+  outline: none;
+
+  font-size: 14px;
+}
+
+.form-grid input::placeholder {
+
+  color: #D8D8D8;
+}
+
+.form-grid input:focus {
+
+  background: #3B3B3B;
+}
+
+.form-card textarea {
+
+  width: 100%;
+
+  min-height: 120px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  resize: none;
+
+  background: #4B4B4B;
+
+  color: white;
+
+  outline: none;
+
+  margin-bottom: 20px;
+
+  font-size: 14px;
+}
+
+.form-card textarea::placeholder {
+
+  color: #D8D8D8;
+}
+
+.add-btn {
+
+  padding: 14px 22px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #149C68;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+
+  background: #0f7a52;
+}
+
+/* SUBIR IMAGEN */
+
+.upload-box {
+
+  background: #4B4B4B;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  min-height: 56px;
+
+  transition: 0.2s;
+}
+
+.upload-box:hover {
+
+  background: #3B3B3B;
+}
+
+.upload-box input {
+
+  display: none;
+}
+
+/* PREVIEW */
+
+.preview-img {
+
+  width: 100%;
+
+  max-height: 260px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+}
+
+/* SUBIR IMAGEN */
+
+.upload-box {
+
+  background: #4B4B4B;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  min-height: 56px;
+
+  transition: 0.2s;
+}
+
+.upload-box:hover {
+
+  background: #3B3B3B;
+}
+
+.upload-box input {
+
+  display: none;
+}
+
+/* PREVIEW */
+
+.preview-img {
+
+  width: 100%;
+
+  max-height: 260px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.6);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.modal {
+
+  background: white;
+
+  width: 90%;
+
+  max-width: 700px;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+}
+
+.modal img {
+
+  width: 100%;
+
+  height: 320px;
+
+  object-fit: cover;
+
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+}
+
+.modal h2 {
+
+  color: #149C68;
+
+  margin-bottom: 15px;
+}
+
+.modal-desc {
+
+  color: #555;
+
+  line-height: 1.6;
+
+  margin-bottom: 20px;
+}
+
+.modal-info {
+
+  display: flex;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+  font-weight: bold;
+
+  color: #149C68;
+}
+
+.pasos h3 {
+
+  margin-bottom: 15px;
+
+  color: #149C68;
+}
+
+.pasos p {
+
+  white-space: pre-line;
+
+  line-height: 1.8;
+
+  color: #444;
+}
+
+.close-btn {
+
+  margin-top: 30px;
+
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #149C68;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
