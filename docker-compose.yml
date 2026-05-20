@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: nutrical-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://192.168.100.92:3000/api ## checar
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  postgres_data:

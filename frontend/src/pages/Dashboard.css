@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #F7F6EE;
+  font-family: Arial;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 270px;
+  background: #FFFFFF;
+  border-right: 1px solid #e5e5e5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-section h1 {
+  color: #149C68;
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #DDF5E8;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+  transition: 0.2s;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.menu button:hover {
+  background: #BFEBCF;
+}
+
+.logout {
+  margin-top: auto;
+  width: 140px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #149C68;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  align-self: center;
+  transition: 0.2s;
+}
+
+.logout:hover {
+  background: #0f7a52;
+}
+
+/* MAIN */
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.topbar h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.topbar p {
+  color: #666;
+}
+
+/* CARDS */
+
+.cards {
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  min-height: 260px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+}
+
+/* PROGRESS */
+
+.circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #38C958;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* BOXES */
+
+.recipe-box,
+.news-box {
+  height: 80px;
+  background: #F2F2F2;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
